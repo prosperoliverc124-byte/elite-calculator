@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Elite Calculator — 10 powerful calculator modes in one beautiful tool." />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <title>Elite Calculator — App</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen" class="app-loading">
+  <div class="app-loading-content">
+    <img
+      src="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg"
+      alt="Elite Calculator"
+      class="app-loading-logo"
+    />
+    <div class="app-loading-bar-wrap">
+      <div class="app-loading-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- APP NAVIGATION -->
+<nav class="app-nav">
+  <div class="app-nav-inner">
+    <a href="index.html" class="app-nav-back">
+      <i data-lucide="arrow-left"></i>
+      <span>Home</span>
+    </a>
+    <div class="app-nav-brand">
+      <img
+        src="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg"
+        alt="Logo"
+        class="app-nav-logo"
+      />
+      <span class="app-nav-title">Elite<span class="app-nav-accent">Calc</span></span>
+    </div>
+    <button class="app-nav-info" id="info-btn" aria-label="Info">
+      <i data-lucide="info"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- MODE SELECTOR -->
+<div class="mode-selector" id="mode-selector">
+  <div class="mode-scroll">
+
+    <button class="mode-tab active" data-mode="standard">
+      <i data-lucide="hash"></i>
+      <span>Standard</span>
+    </button>
+
+    <button class="mode-tab" data-mode="scientific">
+      <i data-lucide="atom"></i>
+      <span>Scientific</span>
+    </button>
+
+    <button class="mode-tab" data-mode="currency">
+      <i data-lucide="dollar-sign"></i>
+      <span>Currency</span>
+    </button>
+
+    <button class="mode-tab" data-mode="units">
+      <i data-lucide="ruler"></i>
+      <span>Units</span>
+    </button>
+
+    <button class="mode-tab" data-mode="finance">
+      <i data-lucide="trending-up"></i>
+      <span>Finance</span>
+    </button>
+
+    <button class="mode-tab" data-mode="health">
+      <i data-lucide="heart-pulse"></i>
+      <span>Health</span>
+    </button>
+
+    <button class="mode-tab" data-mode="datetime">
+      <i data-lucide="calendar"></i>
+      <span>Date</span>
+    </button>
+
+    <button class="mode-tab" data-mode="everyday">
+      <i data-lucide="fuel"></i>
+      <span>Everyday</span>
+    </button>
+
+    <button class="mode-tab" data-mode="developer">
+      <i data-lucide="code-2"></i>
+      <span>Developer</span>
+    </button>
+
+    <button class="mode-tab" data-mode="grade">
+      <i data-lucide="graduation-cap"></i>
+      <span>Grade</span>
+    </button>
+
+  </div>
+</div>
+
+<!-- MAIN CALCULATOR AREA -->
+<main class="calc-app" id="calc-app">  <!-- ================================
+       STANDARD CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode active" id="mode-standard">
+
+    <!-- Display Screen -->
+    <div class="calc-display">
+      <div class="calc-history" id="calc-history"></div>
+      <div class="calc-expression" id="calc-expression"></div>
+      <div class="calc-result" id="calc-result">0</div>
+    </div>
+
+    <!-- Calculator Buttons -->
+    <div class="calc-buttons">
+      <div class="calc-row">
+        <button class="calc-btn func" data-action="clear">AC</button>
+        <button class="calc-btn func" data-action="backspace">
+          <i data-lucide="delete"></i>
+        </button>
+        <button class="calc-btn func" data-action="percent">%</button>
+        <button class="calc-btn operator" data-action="operator" data-value="/">÷</button>
+      </div>
+      <div class="calc-row">
+        <button class="calc-btn number" data-value="7">7</button>
+        <button class="calc-btn number" data-value="8">8</button>
+        <button class="calc-btn number" data-value="9">9</button>
+        <button class="calc-btn operator" data-action="operator" data-value="*">×</button>
+      </div>
+      <div class="calc-row">
+        <button class="calc-btn number" data-value="4">4</button>
+        <button class="calc-btn number" data-value="5">5</button>
+        <button class="calc-btn number" data-value="6">6</button>
+        <button class="calc-btn operator" data-action="operator" data-value="-">−</button>
+      </div>
+      <div class="calc-row">
+        <button class="calc-btn number" data-value="1">1</button>
+        <button class="calc-btn number" data-value="2">2</button>
+        <button class="calc-btn number" data-value="3">3</button>
+        <button class="calc-btn operator" data-action="operator" data-value="+">+</button>
+      </div>
+      <div class="calc-row">
+        <button class="calc-btn number zero" data-value="0">0</button>
+        <button class="calc-btn number" data-value=".">.</button>
+        <button class="calc-btn equals" data-action="equals">=</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================
+       SCIENTIFIC CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-scientific">
+
+    <div class="calc-display">
+      <div class="calc-history" id="sci-history"></div>
+      <div class="calc-expression" id="sci-expression"></div>
+      <div class="calc-result" id="sci-result">0</div>
+    </div>
+
+    <div class="calc-buttons scientific-buttons">
+
+      <!-- Row 1: Advanced functions -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn sci-func" data-action="sci" data-value="sin">sin</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="cos">cos</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="tan">tan</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="log">log</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="ln">ln</button>
+      </div>
+
+      <!-- Row 2: More functions -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn sci-func" data-action="sci" data-value="sqrt">√</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="pow">x²</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="cube">x³</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="pi">π</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="e">e</button>
+      </div>
+
+      <!-- Row 3: Parens + Clear -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn sci-func" data-action="sci" data-value="(">(</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value=")">)</button>
+        <button class="calc-btn func" data-action="sci-clear">AC</button>
+        <button class="calc-btn func" data-action="sci-backspace">
+          <i data-lucide="delete"></i>
+        </button>
+        <button class="calc-btn func" data-action="sci-percent">%</button>
+      </div>
+
+      <!-- Row 4: Numbers -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn number" data-action="sci-num" data-value="7">7</button>
+        <button class="calc-btn number" data-action="sci-num" data-value="8">8</button>
+        <button class="calc-btn number" data-action="sci-num" data-value="9">9</button>
+        <button class="calc-btn operator" data-action="sci-op" data-value="/">÷</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="pow-n">xⁿ</button>
+      </div>
+
+      <!-- Row 5 -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn number" data-action="sci-num" data-value="4">4</button>
+        <button class="calc-btn number" data-action="sci-num" data-value="5">5</button>
+        <button class="calc-btn number" data-action="sci-num" data-value="6">6</button>
+        <button class="calc-btn operator" data-action="sci-op" data-value="*">×</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="fact">n!</button>
+      </div>
+
+      <!-- Row 6 -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn number" data-action="sci-num" data-value="1">1</button>
+        <button class="calc-btn number" data-action="sci-num" data-value="2">2</button>
+        <button class="calc-btn number" data-action="sci-num" data-value="3">3</button>
+        <button class="calc-btn operator" data-action="sci-op" data-value="-">−</button>
+        <button class="calc-btn sci-func" data-action="sci" data-value="abs">|x|</button>
+      </div>
+
+      <!-- Row 7 -->
+      <div class="calc-row sci-row">
+        <button class="calc-btn number sci-zero" data-action="sci-num" data-value="0">0</button>
+        <button class="calc-btn number" data-action="sci-num" data-value=".">.</button>
+        <button class="calc-btn operator" data-action="sci-op" data-value="+">+</button>
+        <button class="calc-btn equals" data-action="sci-equals">=</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       CURRENCY CONVERTER MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-currency">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Currency Converter</h2>
+        <div class="converter-status" id="currency-status">
+          <div class="status-dot"></div>
+          <span>Fetching rates...</span>
+        </div>
+      </div>
+
+      <!-- From Currency -->
+      <div class="converter-card">
+        <label class="converter-label">From</label>
+        <div class="converter-input-row">
+          <select class="converter-select" id="currency-from">
+            <option value="USD">🇺🇸 USD</option>
+            <option value="EUR">🇪🇺 EUR</option>
+            <option value="GBP">🇬🇧 GBP</option>
+            <option value="NGN">🇳🇬 NGN</option>
+            <option value="JPY">🇯🇵 JPY</option>
+            <option value="CAD">🇨🇦 CAD</option>
+            <option value="AUD">🇦🇺 AUD</option>
+            <option value="CHF">🇨🇭 CHF</option>
+            <option value="CNY">🇨🇳 CNY</option>
+            <option value="INR">🇮🇳 INR</option>
+            <option value="BRL">🇧🇷 BRL</option>
+            <option value="ZAR">🇿🇦 ZAR</option>
+            <option value="KRW">🇰🇷 KRW</option>
+            <option value="MXN">🇲🇽 MXN</option>
+            <option value="SGD">🇸🇬 SGD</option>
+            <option value="HKD">🇭🇰 HKD</option>
+            <option value="SEK">🇸🇪 SEK</option>
+            <option value="NOK">🇳🇴 NOK</option>
+            <option value="GHS">🇬🇭 GHS</option>
+            <option value="KES">🇰🇪 KES</option>
+            <option value="EGP">🇪🇬 EGP</option>
+            <option value="AED">🇦🇪 AED</option>
+            <option value="SAR">🇸🇦 SAR</option>
+            <option value="TRY">🇹🇷 TRY</option>
+          </select>
+          <input
+            type="number"
+            class="converter-input"
+            id="currency-amount-from"
+            value="1"
+            placeholder="Enter amount"
+          />
+        </div>
+      </div>
+
+      <!-- Swap Button -->
+      <div class="converter-swap-wrap">
+        <button class="converter-swap" id="currency-swap">
+          <i data-lucide="arrow-up-down"></i>
+        </button>
+      </div>
+
+      <!-- To Currency -->
+      <div class="converter-card">
+        <label class="converter-label">To</label>
+        <div class="converter-input-row">
+          <select class="converter-select" id="currency-to">
+            <option value="NGN">🇳🇬 NGN</option>
+            <option value="USD">🇺🇸 USD</option>
+            <option value="EUR">🇪🇺 EUR</option>
+            <option value="GBP">🇬🇧 GBP</option>
+            <option value="JPY">🇯🇵 JPY</option>
+            <option value="CAD">🇨🇦 CAD</option>
+            <option value="AUD">🇦🇺 AUD</option>
+            <option value="CHF">🇨🇭 CHF</option>
+            <option value="CNY">🇨🇳 CNY</option>
+            <option value="INR">🇮🇳 INR</option>
+            <option value="BRL">🇧🇷 BRL</option>
+            <option value="ZAR">🇿🇦 ZAR</option>
+            <option value="KRW">🇰🇷 KRW</option>
+            <option value="MXN">🇲🇽 MXN</option>
+            <option value="SGD">🇸🇬 SGD</option>
+            <option value="HKD">🇭🇰 HKD</option>
+            <option value="SEK">🇸🇪 SEK</option>
+            <option value="NOK">🇳🇴 NOK</option>
+            <option value="GHS">🇬🇭 GHS</option>
+            <option value="KES">🇰🇪 KES</option>
+            <option value="EGP">🇪🇬 EGP</option>
+            <option value="AED">🇦🇪 AED</option>
+            <option value="SAR">🇸🇦 SAR</option>
+            <option value="TRY">🇹🇷 TRY</option>
+          </select>
+          <input
+            type="number"
+            class="converter-input"
+            id="currency-amount-to"
+            placeholder="Result"
+            readonly
+          />
+        </div>
+      </div>
+
+      <!-- Rate Info -->
+      <div class="converter-rate" id="currency-rate">
+        Select currencies and enter an amount
+      </div>
+
+    </div>
+  </div>  <!-- ================================
+       UNIT CONVERTER MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-units">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Unit Converter</h2>
+      </div>
+
+      <!-- Unit Category Selector -->
+      <div class="unit-categories" id="unit-categories">
+        <button class="unit-cat-btn active" data-category="length">Length</button>
+        <button class="unit-cat-btn" data-category="weight">Weight</button>
+        <button class="unit-cat-btn" data-category="temperature">Temp</button>
+        <button class="unit-cat-btn" data-category="speed">Speed</button>
+        <button class="unit-cat-btn" data-category="volume">Volume</button>
+        <button class="unit-cat-btn" data-category="area">Area</button>
+        <button class="unit-cat-btn" data-category="data">Data</button>
+        <button class="unit-cat-btn" data-category="energy">Energy</button>
+        <button class="unit-cat-btn" data-category="pressure">Pressure</button>
+        <button class="unit-cat-btn" data-category="time">Time</button>
+      </div>
+
+      <!-- From Unit -->
+      <div class="converter-card">
+        <label class="converter-label">From</label>
+        <div class="converter-input-row">
+          <select class="converter-select" id="unit-from"></select>
+          <input
+            type="number"
+            class="converter-input"
+            id="unit-amount-from"
+            value="1"
+            placeholder="Enter value"
+          />
+        </div>
+      </div>
+
+      <!-- Swap -->
+      <div class="converter-swap-wrap">
+        <button class="converter-swap" id="unit-swap">
+          <i data-lucide="arrow-up-down"></i>
+        </button>
+      </div>
+
+      <!-- To Unit -->
+      <div class="converter-card">
+        <label class="converter-label">To</label>
+        <div class="converter-input-row">
+          <select class="converter-select" id="unit-to"></select>
+          <input
+            type="number"
+            class="converter-input"
+            id="unit-amount-to"
+            placeholder="Result"
+            readonly
+          />
+        </div>
+      </div>
+
+      <div class="converter-rate" id="unit-formula">
+        Select a category and enter a value
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       FINANCE CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-finance">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Finance Calculator</h2>
+      </div>
+
+      <!-- Finance Sub-Mode Selector -->
+      <div class="unit-categories" id="finance-categories">
+        <button class="unit-cat-btn active" data-finance="loan">Loan</button>
+        <button class="unit-cat-btn" data-finance="compound">Compound</button>
+        <button class="unit-cat-btn" data-finance="roi">ROI</button>
+        <button class="unit-cat-btn" data-finance="discount">Discount</button>
+        <button class="unit-cat-btn" data-finance="tip">Tip Split</button>
+        <button class="unit-cat-btn" data-finance="tax">Tax</button>
+      </div>
+
+      <!-- Loan Calculator -->
+      <div class="finance-panel active" id="finance-loan">
+        <div class="input-group">
+          <label class="input-label">Loan Amount</label>
+          <input type="number" class="form-input" id="loan-amount" placeholder="e.g. 50000" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Interest Rate (% per year)</label>
+          <input type="number" class="form-input" id="loan-rate" placeholder="e.g. 5" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Loan Term (months)</label>
+          <input type="number" class="form-input" id="loan-term" placeholder="e.g. 36" />
+        </div>
+        <button class="calc-action-btn" id="loan-calc-btn">Calculate</button>
+        <div class="result-card" id="loan-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Monthly Payment</span>
+            <span class="result-value" id="loan-monthly">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Payment</span>
+            <span class="result-value" id="loan-total">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Interest</span>
+            <span class="result-value" id="loan-interest">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compound Interest -->
+      <div class="finance-panel" id="finance-compound">
+        <div class="input-group">
+          <label class="input-label">Principal Amount</label>
+          <input type="number" class="form-input" id="comp-principal" placeholder="e.g. 10000" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Interest Rate (% per year)</label>
+          <input type="number" class="form-input" id="comp-rate" placeholder="e.g. 8" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Time (years)</label>
+          <input type="number" class="form-input" id="comp-time" placeholder="e.g. 5" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Compounds Per Year</label>
+          <select class="form-input" id="comp-frequency">
+            <option value="1">Annually (1)</option>
+            <option value="4">Quarterly (4)</option>
+            <option value="12" selected>Monthly (12)</option>
+            <option value="365">Daily (365)</option>
+          </select>
+        </div>
+        <button class="calc-action-btn" id="comp-calc-btn">Calculate</button>
+        <div class="result-card" id="comp-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Future Value</span>
+            <span class="result-value" id="comp-future">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Interest Earned</span>
+            <span class="result-value" id="comp-earned">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROI Calculator -->
+      <div class="finance-panel" id="finance-roi">
+        <div class="input-group">
+          <label class="input-label">Initial Investment</label>
+          <input type="number" class="form-input" id="roi-initial" placeholder="e.g. 5000" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Final Value</label>
+          <input type="number" class="form-input" id="roi-final" placeholder="e.g. 7500" />
+        </div>
+        <button class="calc-action-btn" id="roi-calc-btn">Calculate</button>
+        <div class="result-card" id="roi-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">ROI</span>
+            <span class="result-value" id="roi-percent">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Profit / Loss</span>
+            <span class="result-value" id="roi-profit">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discount Calculator -->
+      <div class="finance-panel" id="finance-discount">
+        <div class="input-group">
+          <label class="input-label">Original Price</label>
+          <input type="number" class="form-input" id="disc-original" placeholder="e.g. 200" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Discount (%)</label>
+          <input type="number" class="form-input" id="disc-percent" placeholder="e.g. 25" />
+        </div>
+        <button class="calc-action-btn" id="disc-calc-btn">Calculate</button>
+        <div class="result-card" id="disc-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">You Save</span>
+            <span class="result-value" id="disc-savings">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Final Price</span>
+            <span class="result-value" id="disc-final">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tip Splitter -->
+      <div class="finance-panel" id="finance-tip">
+        <div class="input-group">
+          <label class="input-label">Bill Amount</label>
+          <input type="number" class="form-input" id="tip-bill" placeholder="e.g. 85" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Tip (%)</label>
+          <input type="number" class="form-input" id="tip-percent" placeholder="e.g. 15" value="15" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Split Between</label>
+          <input type="number" class="form-input" id="tip-people" placeholder="e.g. 3" value="1" />
+        </div>
+        <button class="calc-action-btn" id="tip-calc-btn">Calculate</button>
+        <div class="result-card" id="tip-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Tip Amount</span>
+            <span class="result-value" id="tip-amount">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Bill</span>
+            <span class="result-value" id="tip-total">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Per Person</span>
+            <span class="result-value" id="tip-each">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tax Calculator -->
+      <div class="finance-panel" id="finance-tax">
+        <div class="input-group">
+          <label class="input-label">Amount (before tax)</label>
+          <input type="number" class="form-input" id="tax-amount" placeholder="e.g. 1000" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Tax Rate (%)</label>
+          <input type="number" class="form-input" id="tax-rate" placeholder="e.g. 7.5" />
+        </div>
+        <button class="calc-action-btn" id="tax-calc-btn">Calculate</button>
+        <div class="result-card" id="tax-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Tax Amount</span>
+            <span class="result-value" id="tax-value">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total After Tax</span>
+            <span class="result-value" id="tax-total">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       HEALTH CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-health">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Health Calculator</h2>
+      </div>
+
+      <div class="unit-categories" id="health-categories">
+        <button class="unit-cat-btn active" data-health="bmi">BMI</button>
+        <button class="unit-cat-btn" data-health="bmr">BMR</button>
+        <button class="unit-cat-btn" data-health="water">Water</button>
+        <button class="unit-cat-btn" data-health="calories">Calories</button>
+      </div>
+
+      <!-- BMI Calculator -->
+      <div class="health-panel active" id="health-bmi">
+        <div class="input-group">
+          <label class="input-label">Weight (kg)</label>
+          <input type="number" class="form-input" id="bmi-weight" placeholder="e.g. 70" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Height (cm)</label>
+          <input type="number" class="form-input" id="bmi-height" placeholder="e.g. 175" />
+        </div>
+        <button class="calc-action-btn" id="bmi-calc-btn">Calculate</button>
+        <div class="result-card" id="bmi-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Your BMI</span>
+            <span class="result-value" id="bmi-value">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Classification</span>
+            <span class="result-value" id="bmi-class">—</span>
+          </div>
+          <div class="bmi-bar-wrap">
+            <div class="bmi-bar">
+              <div class="bmi-indicator" id="bmi-indicator"></div>
+            </div>
+            <div class="bmi-labels">
+              <span>Under</span>
+              <span>Normal</span>
+              <span>Over</span>
+              <span>Obese</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BMR Calculator -->
+      <div class="health-panel" id="health-bmr">
+        <div class="input-group">
+          <label class="input-label">Gender</label>
+          <select class="form-input" id="bmr-gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Age (years)</label>
+          <input type="number" class="form-input" id="bmr-age" placeholder="e.g. 25" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Weight (kg)</label>
+          <input type="number" class="form-input" id="bmr-weight" placeholder="e.g. 70" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Height (cm)</label>
+          <input type="number" class="form-input" id="bmr-height" placeholder="e.g. 175" />
+        </div>
+        <button class="calc-action-btn" id="bmr-calc-btn">Calculate</button>
+        <div class="result-card" id="bmr-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">BMR</span>
+            <span class="result-value" id="bmr-value">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Daily Calories (light activity)</span>
+            <span class="result-value" id="bmr-light">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Daily Calories (moderate)</span>
+            <span class="result-value" id="bmr-moderate">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Daily Calories (active)</span>
+            <span class="result-value" id="bmr-active">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Water Intake -->
+      <div class="health-panel" id="health-water">
+        <div class="input-group">
+          <label class="input-label">Weight (kg)</label>
+          <input type="number" class="form-input" id="water-weight" placeholder="e.g. 70" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Activity Level</label>
+          <select class="form-input" id="water-activity">
+            <option value="sedentary">Sedentary</option>
+            <option value="light">Light Exercise</option>
+            <option value="moderate" selected>Moderate Exercise</option>
+            <option value="active">Very Active</option>
+          </select>
+        </div>
+        <button class="calc-action-btn" id="water-calc-btn">Calculate</button>
+        <div class="result-card" id="water-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Daily Water Intake</span>
+            <span class="result-value" id="water-liters">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Glasses (250ml each)</span>
+            <span class="result-value" id="water-glasses">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calorie Calculator -->
+      <div class="health-panel" id="health-calories">
+        <div class="input-group">
+          <label class="input-label">Exercise Type</label>
+          <select class="form-input" id="cal-exercise">
+            <option value="walking">Walking</option>
+            <option value="running">Running</option>
+            <option value="cycling">Cycling</option>
+            <option value="swimming">Swimming</option>
+            <option value="gym">Weight Training</option>
+            <option value="yoga">Yoga</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Duration (minutes)</label>
+          <input type="number" class="form-input" id="cal-duration" placeholder="e.g. 30" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Weight (kg)</label>
+          <input type="number" class="form-input" id="cal-weight" placeholder="e.g. 70" />
+        </div>
+        <button class="calc-action-btn" id="cal-calc-btn">Calculate</button>
+        <div class="result-card" id="cal-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Calories Burned</span>
+            <span class="result-value" id="cal-burned">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>  <!-- ================================
+       DATE & TIME CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-datetime">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Date & Time</h2>
+      </div>
+
+      <div class="unit-categories" id="datetime-categories">
+        <button class="unit-cat-btn active" data-datetime="age">Age</button>
+        <button class="unit-cat-btn" data-datetime="between">Days Between</button>
+        <button class="unit-cat-btn" data-datetime="countdown">Countdown</button>
+        <button class="unit-cat-btn" data-datetime="workdays">Work Days</button>
+      </div>
+
+      <!-- Age Calculator -->
+      <div class="datetime-panel active" id="datetime-age">
+        <div class="input-group">
+          <label class="input-label">Your Birthday</label>
+          <input type="date" class="form-input" id="age-birthday" />
+        </div>
+        <button class="calc-action-btn" id="age-calc-btn">Calculate Age</button>
+        <div class="result-card" id="age-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Your Age</span>
+            <span class="result-value" id="age-years">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Months Lived</span>
+            <span class="result-value" id="age-months">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Days Lived</span>
+            <span class="result-value" id="age-days">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Next Birthday In</span>
+            <span class="result-value" id="age-next">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Days Between -->
+      <div class="datetime-panel" id="datetime-between">
+        <div class="input-group">
+          <label class="input-label">Start Date</label>
+          <input type="date" class="form-input" id="between-start" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">End Date</label>
+          <input type="date" class="form-input" id="between-end" />
+        </div>
+        <button class="calc-action-btn" id="between-calc-btn">Calculate</button>
+        <div class="result-card" id="between-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Total Days</span>
+            <span class="result-value" id="between-days">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Weeks</span>
+            <span class="result-value" id="between-weeks">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Months</span>
+            <span class="result-value" id="between-months">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Countdown -->
+      <div class="datetime-panel" id="datetime-countdown">
+        <div class="input-group">
+          <label class="input-label">Target Date</label>
+          <input type="date" class="form-input" id="countdown-date" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Event Name (optional)</label>
+          <input type="text" class="form-input" id="countdown-name" placeholder="e.g. My Birthday" />
+        </div>
+        <button class="calc-action-btn" id="countdown-calc-btn">Calculate</button>
+        <div class="result-card" id="countdown-result" style="display:none;">
+          <div class="countdown-display">
+            <div class="countdown-block">
+              <span class="countdown-number" id="cd-days">0</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-number" id="cd-hours">0</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-number" id="cd-mins">0</span>
+              <span class="countdown-label">Mins</span>
+            </div>
+          </div>
+          <p class="countdown-event" id="cd-event"></p>
+        </div>
+      </div>
+
+      <!-- Working Days -->
+      <div class="datetime-panel" id="datetime-workdays">
+        <div class="input-group">
+          <label class="input-label">Start Date</label>
+          <input type="date" class="form-input" id="work-start" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">End Date</label>
+          <input type="date" class="form-input" id="work-end" />
+        </div>
+        <button class="calc-action-btn" id="work-calc-btn">Calculate</button>
+        <div class="result-card" id="work-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Working Days</span>
+            <span class="result-value" id="work-days">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Weekend Days</span>
+            <span class="result-value" id="work-weekends">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Days</span>
+            <span class="result-value" id="work-total">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       EVERYDAY CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-everyday">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Everyday Calculator</h2>
+      </div>
+
+      <div class="unit-categories" id="everyday-categories">
+        <button class="unit-cat-btn active" data-everyday="fuel">Fuel Cost</button>
+        <button class="unit-cat-btn" data-everyday="electricity">Electricity</button>
+        <button class="unit-cat-btn" data-everyday="data">Data Usage</button>
+      </div>
+
+      <!-- Fuel Cost -->
+      <div class="everyday-panel active" id="everyday-fuel">
+        <div class="input-group">
+          <label class="input-label">Distance (km)</label>
+          <input type="number" class="form-input" id="fuel-distance" placeholder="e.g. 250" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Fuel Efficiency (km/liter)</label>
+          <input type="number" class="form-input" id="fuel-efficiency" placeholder="e.g. 12" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Fuel Price (per liter)</label>
+          <input type="number" class="form-input" id="fuel-price" placeholder="e.g. 600" />
+        </div>
+        <button class="calc-action-btn" id="fuel-calc-btn">Calculate</button>
+        <div class="result-card" id="fuel-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Fuel Needed</span>
+            <span class="result-value" id="fuel-liters">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Cost</span>
+            <span class="result-value" id="fuel-cost">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electricity Bill -->
+      <div class="everyday-panel" id="everyday-electricity">
+        <div class="input-group">
+          <label class="input-label">Appliance Wattage (W)</label>
+          <input type="number" class="form-input" id="elec-watts" placeholder="e.g. 1500" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Hours Used Per Day</label>
+          <input type="number" class="form-input" id="elec-hours" placeholder="e.g. 8" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Price Per kWh</label>
+          <input type="number" class="form-input" id="elec-rate" placeholder="e.g. 0.12" />
+        </div>
+        <button class="calc-action-btn" id="elec-calc-btn">Calculate</button>
+        <div class="result-card" id="elec-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Daily Cost</span>
+            <span class="result-value" id="elec-daily">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Monthly Cost</span>
+            <span class="result-value" id="elec-monthly">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Yearly Cost</span>
+            <span class="result-value" id="elec-yearly">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Usage -->
+      <div class="everyday-panel" id="everyday-data">
+        <div class="input-group">
+          <label class="input-label">Monthly Data Plan (GB)</label>
+          <input type="number" class="form-input" id="data-plan" placeholder="e.g. 10" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Data Used So Far (GB)</label>
+          <input type="number" class="form-input" id="data-used" placeholder="e.g. 4.5" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Days Into Billing Cycle</label>
+          <input type="number" class="form-input" id="data-days" placeholder="e.g. 15" />
+        </div>
+        <button class="calc-action-btn" id="data-calc-btn">Calculate</button>
+        <div class="result-card" id="data-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Data Remaining</span>
+            <span class="result-value" id="data-remaining">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Daily Average Used</span>
+            <span class="result-value" id="data-avg">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Projected Usage</span>
+            <span class="result-value" id="data-projected">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Status</span>
+            <span class="result-value" id="data-status">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       DEVELOPER TOOLS MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-developer">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Developer Tools</h2>
+      </div>
+
+      <div class="unit-categories" id="dev-categories">
+        <button class="unit-cat-btn active" data-dev="base">Number Base</button>
+        <button class="unit-cat-btn" data-dev="color">Color Code</button>
+        <button class="unit-cat-btn" data-dev="ascii">ASCII</button>
+      </div>
+
+      <!-- Number Base Converter -->
+      <div class="dev-panel active" id="dev-base">
+        <div class="input-group">
+          <label class="input-label">Enter Number</label>
+          <input type="text" class="form-input mono-input" id="base-input" placeholder="e.g. 255" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Input Base</label>
+          <select class="form-input" id="base-from">
+            <option value="10" selected>Decimal (10)</option>
+            <option value="2">Binary (2)</option>
+            <option value="8">Octal (8)</option>
+            <option value="16">Hexadecimal (16)</option>
+          </select>
+        </div>
+        <button class="calc-action-btn" id="base-calc-btn">Convert</button>
+        <div class="result-card" id="base-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Decimal</span>
+            <span class="result-value mono-val" id="base-dec">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Binary</span>
+            <span class="result-value mono-val" id="base-bin">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Octal</span>
+            <span class="result-value mono-val" id="base-oct">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Hexadecimal</span>
+            <span class="result-value mono-val" id="base-hex">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Code Converter -->
+      <div class="dev-panel" id="dev-color">
+        <div class="input-group">
+          <label class="input-label">HEX Color Code</label>
+          <input type="text" class="form-input mono-input" id="color-hex" placeholder="e.g. #00FF88" />
+        </div>
+        <button class="calc-action-btn" id="color-calc-btn">Convert</button>
+        <div class="result-card" id="color-result" style="display:none;">
+          <div class="color-preview" id="color-preview"></div>
+          <div class="result-row">
+            <span class="result-label">HEX</span>
+            <span class="result-value mono-val" id="color-hex-out">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">RGB</span>
+            <span class="result-value mono-val" id="color-rgb-out">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">HSL</span>
+            <span class="result-value mono-val" id="color-hsl-out">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASCII Converter -->
+      <div class="dev-panel" id="dev-ascii">
+        <div class="input-group">
+          <label class="input-label">Enter Text or ASCII Number</label>
+          <input type="text" class="form-input mono-input" id="ascii-input" placeholder="e.g. Hello or 72" />
+        </div>
+        <button class="calc-action-btn" id="ascii-calc-btn">Convert</button>
+        <div class="result-card" id="ascii-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Text</span>
+            <span class="result-value mono-val" id="ascii-text">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">ASCII Codes</span>
+            <span class="result-value mono-val" id="ascii-codes">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       GRADE & GPA CALCULATOR MODE
+  ================================ -->
+  <div class="calc-mode" id="mode-grade">
+
+    <div class="converter-panel">
+
+      <div class="converter-header">
+        <h2 class="converter-title">Grade & GPA</h2>
+      </div>
+
+      <div class="unit-categories" id="grade-categories">
+        <button class="unit-cat-btn active" data-grade="gpa">GPA</button>
+        <button class="unit-cat-btn" data-grade="needed">Grade Needed</button>
+      </div>
+
+      <!-- GPA Calculator -->
+      <div class="grade-panel active" id="grade-gpa">
+        <p class="panel-hint">Add your courses below</p>
+        <div id="gpa-courses">
+          <div class="gpa-row">
+            <input type="text" class="form-input gpa-name" placeholder="Course name" />
+            <select class="form-input gpa-grade">
+              <option value="4.0">A</option>
+              <option value="3.7">A-</option>
+              <option value="3.3">B+</option>
+              <option value="3.0">B</option>
+              <option value="2.7">B-</option>
+              <option value="2.3">C+</option>
+              <option value="2.0">C</option>
+              <option value="1.7">C-</option>
+              <option value="1.3">D+</option>
+              <option value="1.0">D</option>
+              <option value="0.0">F</option>
+            </select>
+            <input type="number" class="form-input gpa-credits" placeholder="Credits" value="3" />
+          </div>
+        </div>
+        <button class="add-row-btn" id="gpa-add-btn">
+          <i data-lucide="plus"></i> Add Course
+        </button>
+        <button class="calc-action-btn" id="gpa-calc-btn">Calculate GPA</button>
+        <div class="result-card" id="gpa-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">Your GPA</span>
+            <span class="result-value" id="gpa-value">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Total Credits</span>
+            <span class="result-value" id="gpa-credits-total">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grade Needed -->
+      <div class="grade-panel" id="grade-needed">
+        <div class="input-group">
+          <label class="input-label">Current Grade (%)</label>
+          <input type="number" class="form-input" id="needed-current" placeholder="e.g. 72" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Current Weight (%)</label>
+          <input type="number" class="form-input" id="needed-weight" placeholder="e.g. 60" />
+        </div>
+        <div class="input-group">
+          <label class="input-label">Target Final Grade (%)</label>
+          <input type="number" class="form-input" id="needed-target" placeholder="e.g. 80" />
+        </div>
+        <button class="calc-action-btn" id="needed-calc-btn">Calculate</button>
+        <div class="result-card" id="needed-result" style="display:none;">
+          <div class="result-row">
+            <span class="result-label">You Need To Score</span>
+            <span class="result-value" id="needed-score">—</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">On Remaining</span>
+            <span class="result-value" id="needed-remaining">—</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div></main>
+
+<!-- ================================
+     INFO MODAL
+     Shows when user taps the info
+     button in the top right nav
+================================ -->
+<div class="info-modal-overlay" id="info-modal">
+  <div class="info-modal">
+
+    <div class="info-modal-header">
+      <h3>About Elite Calculator</h3>
+      <button class="info-modal-close" id="info-close">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <div class="info-modal-body">
+      <div class="info-item">
+        <i data-lucide="zap"></i>
+        <div>
+          <h4>10 Powerful Modes</h4>
+          <p>Standard, Scientific, Currency, Units, Finance, Health, Date/Time, Everyday, Developer, and Grade calculators.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i data-lucide="wifi-off"></i>
+        <div>
+          <h4>Works Offline</h4>
+          <p>Everything except Currency Converter works without internet. Your calculations stay private.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i data-lucide="shield-check"></i>
+        <div>
+          <h4>100% Free & Private</h4>
+          <p>No accounts. No tracking. No ads. Open source and free forever.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i data-lucide="heart"></i>
+        <div>
+          <h4>Built For You</h4>
+          <p>Designed for the generation that demands more from their tools.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-modal-footer">
+      <a href="index.html" class="info-link">
+        <i data-lucide="home"></i>
+        Back to Home
+      </a>
+      <a href="#" class="info-link">
+        <i data-lucide="github"></i>
+        View Source
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================
+     KEYBOARD SHORTCUT TOAST
+     Shows briefly when user uses
+     a keyboard shortcut
+================================ -->
+<div class="toast" id="toast">
+  <span class="toast-text" id="toast-text"></span>
+</div>
+
+<!-- ================================
+     SCRIPTS
+     Order matters here:
+     1. calculator.js — standard calc + mode switching
+     2. scientific.js — scientific mode logic
+     3. currency.js — currency converter
+     4. units.js — unit converter
+     5. finance.js — finance tools
+     6. health.js — health calculators
+     7. datetime.js — date/time tools
+     8. everyday.js — everyday calculators
+     9. developer.js — dev tools
+     10. grade.js — GPA calculator
+================================ -->
+<script src="js/calculator.js"></script>
+<script src="js/scientific.js"></script>
+<script src="js/currency.js"></script>
+<script src="js/units.js"></script>
+<script src="js/finance.js"></script>
+<script src="js/health.js"></script>
+<script src="js/datetime.js"></script>
+<script src="js/everyday.js"></script>
+<script src="js/developer.js"></script>
+<script src="js/grade.js"></script>
+
+<!-- Safety net for loading screen -->
+<script>
+  setTimeout(function() {
+    var ls = document.getElementById('loading-screen');
+    if (ls && ls.style.display !== 'none') {
+      ls.style.opacity = '0';
+      ls.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }, 5000);
+</script>
+
+</body>
+</html>

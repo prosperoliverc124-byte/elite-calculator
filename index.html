@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Elite Calculator — The calculator that thinks with you. Currency conversion, finance tools, scientific calculator, health metrics, and more." />
+  <meta name="keywords" content="calculator, currency converter, unit converter, finance calculator, scientific calculator, elite calculator" />
+  <meta name="author" content="Elite Calculator" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <!-- Open Graph (Social Media Preview) -->
+  <meta property="og:title" content="Elite Calculator — Beyond Numbers" />
+  <meta property="og:description" content="The world's most powerful free calculator. Currency, finance, health, science, and more." />
+  <meta property="og:image" content="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/elite-calculator/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elite Calculator — Beyond Numbers" />
+  <meta name="twitter:description" content="The world's most powerful free calculator." />
+  <meta name="twitter:image" content="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg" />
+
+  <title>Elite Calculator — Beyond Numbers</title>
+
+  <!-- Favicon (SVG inline approach — no image file needed) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons (Lucide — lightweight, perfect style) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+
+<body>
+
+  <!-- ============================================
+       LOADING SCREEN
+       Shows while page loads, fades out smoothly
+  ============================================ -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo-wrapper">
+        <img
+          src="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg"
+          alt="Elite Calculator Logo"
+          class="loading-logo"
+        />
+        <div class="loading-glow"></div>
+      </div>
+      <div class="loading-wordmark">
+        <span class="loading-elite">Elite</span>
+        <span class="loading-calc">Calculator</span>
+      </div>
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+      </div>
+      <p class="loading-tagline">Initializing genius...</p>
+    </div>
+  </div>
+
+  <!-- ============================================
+       NAVIGATION
+  ============================================ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img
+          src="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg"
+          alt="Elite Calculator"
+          class="nav-logo-img"
+        />
+        <span class="nav-logo-text">Elite<span class="nav-logo-accent">Calc</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#modes" class="nav-link">Modes</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="app.html" class="btn-primary nav-cta">
+          <i data-lucide="calculator"></i>
+          Launch App
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#features" class="mobile-nav-link">Features</a></li>
+        <li><a href="#modes" class="mobile-nav-link">Modes</a></li>
+        <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+        <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+        <li><a href="app.html" class="btn-primary mobile-cta">Launch App</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+  ============================================ -->
+  <section class="hero" id="home">
+
+    <!-- Animated background elements -->
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="hero-container">
+
+      <!-- Left: Text Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i data-lucide="zap"></i>
+          <span>10 Powerful Modes</span>
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="hero-line-1">The Calculator</span>
+          <span class="hero-line-2">That <em class="hero-gradient-text">Thinks</em></span>
+          <span class="hero-line-3">With You.</span>
+        </h1>
+
+        <p class="hero-description">
+          Elite Calculator goes beyond arithmetic. Convert currencies in real-time,
+          calculate loans, track health metrics, explore scientific constants,
+          and decode developer data — all in one beautifully designed tool.
+          Built for the generation that demands more.
+        </p>
+
+        <div class="hero-actions">
+          <a href="app.html" class="btn-primary btn-large">
+            <i data-lucide="calculator"></i>
+            Start Calculating
+          </a>
+          <a href="#features" class="btn-ghost btn-large">
+            Explore Features
+            <i data-lucide="arrow-down"></i>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number" data-count="10">0</span>
+            <span class="hero-stat-label">Calc Modes</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number" data-count="170">0</span>
+            <span class="hero-stat-label">Currencies</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number" data-count="50">0</span>
+            <span class="hero-stat-label">Unit Types</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">∞</span>
+            <span class="hero-stat-label">Possibilities</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Calculator Preview Visual -->
+      <div class="hero-visual">
+        <div class="hero-device">
+          <!-- Floating cards around the calculator -->
+          <div class="floating-card floating-card-1">
+            <i data-lucide="trending-up"></i>
+            <div class="floating-card-content">
+              <span class="floating-card-label">ROI Result</span>
+              <span class="floating-card-value">+247%</span>
+            </div>
+          </div>
+
+          <div class="floating-card floating-card-2">
+            <i data-lucide="dollar-sign"></i>
+            <div class="floating-card-content">
+              <span class="floating-card-label">USD → NGN</span>
+              <span class="floating-card-value">Live Rate</span>
+            </div>
+          </div>
+
+          <div class="floating-card floating-card-3">
+            <i data-lucide="activity"></i>
+            <div class="floating-card-content">
+              <span class="floating-card-label">BMI Score</span>
+              <span class="floating-card-value">22.4</span>
+            </div>
+          </div>
+
+          <div class="floating-card floating-card-4">
+            <i data-lucide="code-2"></i>
+            <div class="floating-card-content">
+              <span class="floating-card-label">255 → HEX</span>
+              <span class="floating-card-value">#FF</span>
+            </div>
+          </div>
+
+          <!-- Main calculator mockup -->
+          <div class="calc-mockup">
+            <div class="calc-mockup-screen">
+              <div class="calc-mockup-expression">2,450 × 1.085</div>
+              <div class="calc-mockup-result">2,658.25</div>
+              <div class="calc-mockup-currency">≈ ₦ 4,312,042</div>
+            </div>
+            <div class="calc-mockup-buttons">
+              <div class="calc-btn-row">
+                <div class="cmb cmb-func">AC</div>
+                <div class="cmb cmb-func">⌫</div>
+                <div class="cmb cmb-func">%</div>
+                <div class="cmb cmb-op">÷</div>
+              </div>
+              <div class="calc-btn-row">
+                <div class="cmb">7</div>
+                <div class="cmb">8</div>
+                <div class="cmb">9</div>
+                <div class="cmb cmb-op">×</div>
+              </div>
+              <div class="calc-btn-row">
+                <div class="cmb">4</div>
+                <div class="cmb">5</div>
+                <div class="cmb">6</div>
+                <div class="cmb cmb-op">−</div>
+              </div>
+              <div class="calc-btn-row">
+                <div class="cmb">1</div>
+                <div class="cmb">2</div>
+                <div class="cmb">3</div>
+                <div class="cmb cmb-op">+</div>
+              </div>
+              <div class="calc-btn-row">
+                <div class="cmb cmb-zero">0</div>
+                <div class="cmb">.</div>
+                <div class="cmb cmb-equals">=</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+      <span>Scroll to explore</span>
+    </div>
+
+  </section>
+
+  <!-- ============================================
+       FEATURES SECTION
+  ============================================ -->
+  <section class="features" id="features">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <div class="section-badge">Why Elite?</div>
+        <h2 class="section-title">
+          Not just a calculator.<br />
+          <span class="gradient-text">A thinking tool.</span>
+        </h2>
+        <p class="section-subtitle">
+          Every human who's ever fumbled with scattered apps, wrong conversions,
+          or confusing spreadsheets — this was built for you.
+        </p>
+      </div>
+
+      <div class="features-bento">
+
+        <div class="bento-card bento-large reveal">
+          <div class="bento-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <h3>Instant Multi-Mode Switching</h3>
+          <p>Flip between 10 specialized calculator modes in a single tap. No app switching. No context loss. One tool that adapts to your current need — whether you're in a store, a lab, or a boardroom.</p>
+          <div class="bento-glow"></div>
+        </div>
+
+        <div class="bento-card reveal">
+          <div class="bento-icon">
+            <i data-lucide="refresh-cw"></i>
+          </div>
+          <h3>Live Currency Rates</h3>
+          <p>Real-time exchange rates for 170+ currencies. Always accurate. Always free.</p>
+          <div class="bento-glow"></div>
+        </div>
+
+        <div class="bento-card reveal">
+          <div class="bento-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <h3>100% Free Forever</h3>
+          <p>No accounts. No subscriptions. No paywalls. Open to everyone, always.</p>
+          <div class="bento-glow"></div>
+        </div>
+
+        <div class="bento-card reveal">
+          <div class="bento-icon">
+            <i data-lucide="smartphone"></i>
+          </div>
+          <h3>Works On Any Device</h3>
+          <p>Pixel-perfect on phones, tablets, and desktops. Built mobile-first.</p>
+          <div class="bento-glow"></div>
+        </div>
+
+        <div class="bento-card bento-wide reveal">
+          <div class="bento-icon">
+            <i data-lucide="layers"></i>
+          </div>
+          <h3>Context-Aware Results</h3>
+          <p>Elite Calculator doesn't just give you a number. It gives you meaning. See currency equivalents alongside your result. See health classifications with your BMI. See loan breakdowns with your interest. Math with context changes everything.</p>
+          <div class="bento-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MODES SECTION
+  ============================================ -->
+  <section class="modes" id="modes">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <div class="section-badge">10 Modes</div>
+        <h2 class="section-title">
+          One tool.<br />
+          <span class="gradient-text">Every calculation.</span>
+        </h2>
+      </div>
+
+      <div class="modes-grid">
+
+        <div class="mode-card reveal" data-mode="standard">
+          <div class="mode-icon-wrap">
+            <i data-lucide="hash"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Standard</h3>
+            <p>Beautiful arithmetic with satisfying key feedback. Your everyday companion, redesigned.</p>
+          </div>
+          <div class="mode-tag">Core</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="currency">
+          <div class="mode-icon-wrap">
+            <i data-lucide="dollar-sign"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Currency</h3>
+            <p>Live exchange rates. 170+ currencies. Convert as you type.</p>
+          </div>
+          <div class="mode-tag">Live</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="units">
+          <div class="mode-icon-wrap">
+            <i data-lucide="ruler"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Unit Converter</h3>
+            <p>Length, weight, temperature, speed, volume, area, energy, data and more.</p>
+          </div>
+          <div class="mode-tag">50+ Types</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="finance">
+          <div class="mode-icon-wrap">
+            <i data-lucide="trending-up"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Finance</h3>
+            <p>Loans, ROI, compound interest, tax, discounts, tips, inflation.</p>
+          </div>
+          <div class="mode-tag">7 Tools</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="scientific">
+          <div class="mode-icon-wrap">
+            <i data-lucide="atom"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Scientific</h3>
+            <p>Trigonometry, logarithms, powers, roots, and mathematical constants.</p>
+          </div>
+          <div class="mode-tag">Advanced</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="health">
+          <div class="mode-icon-wrap">
+            <i data-lucide="heart-pulse"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Health</h3>
+            <p>BMI, BMR, calories, ideal weight, water intake, macro ratios.</p>
+          </div>
+          <div class="mode-tag">Wellness</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="datetime">
+          <div class="mode-icon-wrap">
+            <i data-lucide="calendar"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Date & Time</h3>
+            <p>Age calculator, days between dates, countdowns, working days.</p>
+          </div>
+          <div class="mode-tag">Temporal</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="everyday">
+          <div class="mode-icon-wrap">
+            <i data-lucide="fuel"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Everyday</h3>
+            <p>Fuel cost, electricity bills, data usage, trip cost estimator.</p>
+          </div>
+          <div class="mode-tag">Life</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="developer">
+          <div class="mode-icon-wrap">
+            <i data-lucide="code-2"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Developer</h3>
+            <p>Binary, hex, octal, ASCII, color codes. Built for builders.</p>
+          </div>
+          <div class="mode-tag">Dev</div>
+        </div>
+
+        <div class="mode-card reveal" data-mode="grade">
+          <div class="mode-icon-wrap">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <div class="mode-info">
+            <h3>Grade & GPA</h3>
+            <p>Grade calculator, GPA tracker, class average, score needed to pass.</p>
+          </div>
+          <div class="mode-tag">Student</div>
+        </div>
+
+      </div>
+
+      <div class="modes-cta reveal">
+        <a href="app.html" class="btn-primary btn-large">
+          <i data-lucide="play"></i>
+          Try All Modes Free
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       HOW IT WORKS
+  ============================================ -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <div class="section-badge">Simple</div>
+        <h2 class="section-title">
+          Three steps.<br />
+          <span class="gradient-text">Zero friction.</span>
+        </h2>
+      </div>
+
+      <div class="steps-grid">
+
+        <div class="step-card reveal">
+          <div class="step-number">01</div>
+          <div class="step-icon">
+            <i data-lucide="mouse-pointer-click"></i>
+          </div>
+          <h3>Open the App</h3>
+          <p>No sign up. No download. No installation. Just open your browser and you're ready. It works on every device — instantly.</p>
+        </div>
+
+        <div class="step-connector reveal"></div>
+
+        <div class="step-card reveal">
+          <div class="step-number">02</div>
+          <div class="step-icon">
+            <i data-lucide="layers"></i>
+          </div>
+          <h3>Choose Your Mode</h3>
+          <p>Select from 10 specialized modes depending on what you need to calculate. Switch anytime — your session stays intact.</p>
+        </div>
+
+        <div class="step-connector reveal"></div>
+
+        <div class="step-card reveal">
+          <div class="step-number">03</div>
+          <div class="step-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <h3>Get Smart Results</h3>
+          <p>Not just numbers — context-aware answers with explanations, conversions, and breakdowns. Math that actually makes sense.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TESTIMONIALS
+  ============================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <div class="section-badge">People Love It</div>
+        <h2 class="section-title">
+          Real humans.<br />
+          <span class="gradient-text">Real reactions.</span>
+        </h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+                <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The developer mode alone is worth it. Binary to hex, hex to ASCII — all in one clean interface. I use this daily during coding sessions. Bookmarked permanently."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JM</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Jordan M.</span>
+              <span class="testimonial-role">Software Developer, UK</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Finally a calculator that respects my intelligence AND my time. The GPA calculator literally saved my semester — I calculated exactly what grades I needed to pass."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ZR</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Zara R.</span>
+              <span class="testimonial-role">University Student, Canada</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq" id="faq">
+    <div class="section-container">
+
+      <div class="section-header reveal">
+        <div class="section-badge">FAQ</div>
+        <h2 class="section-title">
+          Questions?<br />
+          <span class="gradient-text">Answered.</span>
+        </h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is Elite Calculator really free?</span>
+            <i data-lucide="plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes — 100% free, forever. No hidden fees, no premium tier, no account required. Elite Calculator is open source and built for everyone.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>How accurate are the currency rates?</span>
+            <i data-lucide="plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Currency rates are fetched in real-time and updated regularly. Accurate for everyday use and travel planning — for large official transactions always verify with your bank.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>Does it work without internet?</span>
+            <i data-lucide="plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Most modes work offline — standard, scientific, unit conversion, health, date/time, developer, grade, and everyday calculators all work without internet. Only Currency requires a connection for live rates.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I use it on my phone?</span>
+            <i data-lucide="plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Elite Calculator is built mobile-first. Every button, input, and layout is optimized for touchscreens. It feels like a native app in your browser.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>What makes this different from Google's calculator?</span>
+            <i data-lucide="plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Google's calculator does arithmetic. Elite Calculator gives you context-aware results across 10 specialized modes — loans, health metrics, developer tools, GPA tracking, live currency and more. It's not a calculator. It's a thinking tool.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is my data private?</span>
+            <i data-lucide="plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Completely. Everything runs in your browser. Nothing you type is sent to any server except currency API requests which contain zero personal data. No tracking. Your math stays yours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-card reveal">
+        <div class="cta-orb-1"></div>
+        <div class="cta-orb-2"></div>
+        <div class="section-badge">Ready?</div>
+        <h2 class="cta-title">
+          Stop calculating.<br />
+          <span class="gradient-text">Start understanding.</span>
+        </h2>
+        <p class="cta-description">
+          Join thousands who've switched to the calculator that actually thinks.
+          Free forever. No sign up. Just results.
+        </p>
+        <a href="app.html" class="btn-primary btn-large btn-glow">
+          <i data-lucide="calculator"></i>
+          Launch Elite Calculator
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img
+            src="https://i.postimg.cc/bwJGd2sS/994266106-1785743439122091.jpg"
+            alt="Elite Calculator"
+            class="footer-logo-img"
+          />
+          <span class="footer-logo-text">Elite<span class="footer-logo-accent">Calc</span></span>
+        </a>
+        <p class="footer-tagline">The calculator that thinks with you.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="GitHub">
+            <i data-lucide="github"></i>
+          </a>
+          <a href="#" class="footer-social" aria-label="Twitter">
+            <i data-lucide="twitter"></i>
+          </a>
+          <a href="#" class="footer-social" aria-label="Instagram">
+            <i data-lucide="instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Calculator Modes</h4>
+        <ul>
+          <li><a href="app.html">Standard</a></li>
+          <li><a href="app.html">Currency</a></li>
+          <li><a href="app.html">Scientific</a></li>
+          <li><a href="app.html">Finance</a></li>
+          <li><a href="app.html">Health</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>More Modes</h4>
+        <ul>
+          <li><a href="app.html">Unit Converter</a></li>
+          <li><a href="app.html">Date & Time</a></li>
+          <li><a href="app.html">Developer</a></li>
+          <li><a href="app.html">Everyday</a></li>
+          <li><a href="app.html">Grade & GPA</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Open Source</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Elite Calculator. Built for humans who think bigger.</p>
+      <p>Free forever. Open source. No sign up required.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <script src="js/main.js"></script>
+
+</body>
+  </html>

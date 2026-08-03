@@ -13,25 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     lucide.createIcons();
   }
 
-  /* ========================================
-     2. LOADING SCREEN
-  ======================================== */
-  var loadingScreen = document.getElementById('loading-screen');
-  document.body.style.overflow = 'hidden';
-
-  setTimeout(function() {
-    if (loadingScreen) {
-      loadingScreen.style.transition = 'opacity 0.5s ease';
-      loadingScreen.style.opacity = '0';
-      setTimeout(function() {
-        loadingScreen.style.display = 'none';
-        document.body.style.overflow = '';
-      }, 500);
-    } else {
-      document.body.style.overflow = '';
-    }
-  }, 1500);
-
+    /* Loading screen is handled by inline
+     script in app.html — no code needed here */
   /* ========================================
      3. MODE SWITCHING
      

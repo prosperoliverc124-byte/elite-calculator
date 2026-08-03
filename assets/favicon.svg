@@ -1,0 +1,100 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+>
+  <!-- Background rounded square -->
+  <rect
+    x="2"
+    y="2"
+    width="60"
+    height="60"
+    rx="16"
+    ry="16"
+    fill="#0A0A0A"
+    stroke="#1E1E1E"
+    stroke-width="1"
+  />
+
+  <!-- Outer glow ring (subtle) -->
+  <rect
+    x="2"
+    y="2"
+    width="60"
+    height="60"
+    rx="16"
+    ry="16"
+    fill="none"
+    stroke="#00FF88"
+    stroke-width="1"
+    opacity="0.3"
+  />
+
+  <!-- Letter E — built from rectangles -->
+  <!-- Vertical bar of E -->
+  <rect
+    x="14"
+    y="16"
+    width="5"
+    height="32"
+    rx="2"
+    fill="#00FF88"
+  />
+
+  <!-- Top bar of E -->
+  <rect
+    x="14"
+    y="16"
+    width="22"
+    height="5"
+    rx="2"
+    fill="#00FF88"
+  />
+
+  <!-- Middle bar of E -->
+  <rect
+    x="14"
+    y="29.5"
+    width="17"
+    height="5"
+    rx="2"
+    fill="#00FF88"
+  />
+
+  <!-- Bottom bar of E -->
+  <rect
+    x="14"
+    y="43"
+    width="22"
+    height="5"
+    rx="2"
+    fill="#00FF88"
+  />
+
+  <!-- Lightning bolt accent (top right area)
+       Suggests this is beyond ordinary -->
+  <polygon
+    points="42,14 36,30 41,30 35,50 50,28 44,28 50,14"
+    fill="#7C3AED"
+    opacity="0.9"
+  />
+
+  <!-- Subtle inner glow effect
+       A soft green radial behind the E -->
+  <radialGradient id="glowGrad" cx="35%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#00FF88" stop-opacity="0.08" />
+    <stop offset="100%" stop-color="#00FF88" stop-opacity="0" />
+  </radialGradient>
+
+  <rect
+    x="2"
+    y="2"
+    width="60"
+    height="60"
+    rx="16"
+    ry="16"
+    fill="url(#glowGrad)"
+  />
+
+</svg>

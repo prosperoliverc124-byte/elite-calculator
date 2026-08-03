@@ -1261,7 +1261,40 @@
 <div class="toast" id="toast">
   <span class="toast-text" id="toast-text"></span>
 </div>
+<script>
+  /* NUCLEAR LOADING SCREEN HANDLER
+     This runs BEFORE any JS files load.
+     It guarantees the loading screen dies
+     no matter what happens with other files. */
 
+  /* Initialize icons immediately */
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  /* Hide loading screen after 1.5 seconds */
+  var appLS = document.getElementById('loading-screen');
+  if (appLS) {
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      appLS.style.transition = 'opacity 0.5s ease';
+      appLS.style.opacity = '0';
+      setTimeout(function() {
+        appLS.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 500);
+    }, 1500);
+  }
+
+  /* Absolute safety net at 4 seconds */
+  setTimeout(function() {
+    var deadLS = document.getElementById('loading-screen');
+    if (deadLS) {
+      deadLS.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }, 4000);
+</script>
 <!-- ================================
      SCRIPTS
      Order matters here:
@@ -1287,17 +1320,6 @@
 <script src="js/developer.js"></script>
 <script src="js/grade.js"></script>
 
-<!-- Safety net for loading screen -->
-<script>
-  setTimeout(function() {
-    var ls = document.getElementById('loading-screen');
-    if (ls && ls.style.display !== 'none') {
-      ls.style.opacity = '0';
-      ls.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-  }, 5000);
-</script>
-
+  
 </body>
 </html>

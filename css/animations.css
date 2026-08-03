@@ -1,0 +1,377 @@
+/* ============================================
+   ELITE CALCULATOR — ANIMATIONS
+   All scroll reveals, transitions, and
+   premium micro-interaction effects live here
+============================================ */
+
+/* ============================================
+   SCROLL REVEAL SYSTEM
+   
+   How it works:
+   - Every element with class "reveal" starts
+     invisible and slightly shifted down
+   - When it enters the viewport, JavaScript
+     adds the "visible" class
+   - The CSS transition then animates it in
+   - This creates the smooth "fade up" effect
+     you see on premium websites
+============================================ */
+
+/* Default hidden state — all reveal elements
+   start like this before JS sees them */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Visible state — JS adds this class when
+   element enters the viewport */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delay variants
+   These create a cascading effect when
+   multiple cards appear at the same time.
+   Each card appears slightly after the last. */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Reveal from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reveal from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale reveal — for cards and icons */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   ANIMATED NUMBER COUNTER
+   Used in the hero stats section.
+   Numbers count up from 0 when visible.
+============================================ */
+.count-up {
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   GRADIENT TEXT ANIMATION
+   The neon gradient text shifts colors slowly
+============================================ */
+.gradient-text-animated {
+  background: linear-gradient(
+    135deg,
+    #00FF88,
+    #00D4FF,
+    #7C3AED,
+    #00FF88
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================
+   NEON BORDER PULSE
+   Used on featured/highlighted cards
+============================================ */
+.neon-border-pulse {
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    border-color: rgba(0,255,136,0.2);
+    box-shadow: 0 0 0 rgba(0,255,136,0);
+  }
+  50% {
+    border-color: rgba(0,255,136,0.5);
+    box-shadow: 0 0 20px rgba(0,255,136,0.15);
+  }
+}
+
+/* ============================================
+   FLOATING ANIMATION
+   Used on hero floating cards.
+   Each card floats at different speeds
+   creating an organic layered motion.
+============================================ */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(1deg); }
+}
+
+@keyframes floatMedium {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes floatFast {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ============================================
+   BUTTON RIPPLE EFFECT
+   When a button is clicked, a ripple
+   spreads outward from the click point
+============================================ */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   CARD HOVER LIFT
+   Smooth upward movement on card hover
+   with a neon shadow appearing beneath
+============================================ */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,255,136,0.1);
+}
+
+/* ============================================
+   TYPEWRITER CURSOR
+   Blinking cursor effect for mono text
+============================================ */
+.typewriter-cursor::after {
+  content: '|';
+  color: #00FF88;
+  animation: cursorBlink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================
+   SKELETON LOADING
+   Used as placeholder while content loads.
+   The shimmer effect moves across the element.
+============================================ */
+.skeleton {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.03) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============================================
+   PAGE TRANSITION
+   Smooth fade when navigating between pages
+============================================ */
+.page-transition {
+  animation: pageFadeIn 0.5s ease forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   ICON SPIN
+   Used on loading states and refresh icons
+============================================ */
+.icon-spin {
+  animation: iconSpin 1s linear infinite;
+}
+
+@keyframes iconSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ============================================
+   BOUNCE IN
+   For success states and notifications
+============================================ */
+.bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   NEON GLOW TEXT
+   For special highlighted words
+============================================ */
+.glow-text {
+  color: #00FF88;
+  text-shadow:
+    0 0 10px rgba(0,255,136,0.5),
+    0 0 20px rgba(0,255,136,0.3),
+    0 0 40px rgba(0,255,136,0.1);
+}
+
+/* ============================================
+   STAGGER CHILDREN
+   When applied to a parent, each direct
+   child animates in one after the other
+============================================ */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-children.visible > *:nth-child(1) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0.05s; 
+}
+.stagger-children.visible > *:nth-child(2) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0.1s; 
+}
+.stagger-children.visible > *:nth-child(3) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0.15s; 
+}
+.stagger-children.visible > *:nth-child(4) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0.2s; 
+}
+.stagger-children.visible > *:nth-child(5) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0.25s; 
+}
+.stagger-children.visible > *:nth-child(6) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0.3s; 
+}
+
+/* ============================================
+   REDUCED MOTION
+   Respects users who prefer less animation.
+   This is an accessibility requirement.
+   If someone has motion sensitivity turned on
+   in their OS, all animations are disabled.
+============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+  }

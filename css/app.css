@@ -1743,4 +1743,7 @@ button:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  }
+  }/* Prevent permanent scroll lock */
+body.loaded {
+  overflow: auto !important;
+   }
